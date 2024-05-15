@@ -67,7 +67,6 @@ namespace ProgettoTPS
 
             return dataTable;
         }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
