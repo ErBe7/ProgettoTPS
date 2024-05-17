@@ -1,0 +1,31 @@
+full_name,abbreviation,city,state,year_founded,conference,W,L
+Atlanta Hawks,ATL,Atlanta,Atlanta,1949,EAST,36,46
+Boston Celtics,BOS,Boston,Massachusetts,1946,EAST,64,18
+Cleveland Cavaliers,CLE,Cleveland,Ohio,1970,EAST,48,34
+New Orleans Pelicans,NOP,New Orleans,Louisiana,2002,WEST,49,33
+Chicago Bulls,CHI,Chicago,Illinois,1966,EAST,39,43
+Dallas Mavericks,DAL,Dallas,Texas,1980,WEST,50,32
+Denver Nuggets,DEN,Denver,Colorado,1976,WEST,57,25
+Golden State Warriors,GSW,GoldenState,California,1946,WEST,46,36
+Houston Rockets,HOU,Houston,Texas,1967,WEST,41,41
+Los Angeles Clippers,LAC,LosAngeles,California,1970,WEST,51,31
+Los Angeles Lakers,LAL,LosAngeles,California,1948,WEST,47,35
+Miami Heat,MIA,Miami,Florida,1988,EAST,46,36
+Milwaukee Bucks,MIL,Milwaukee,Wisconsin,1968,EAST,49,33
+Minnesota Timberwolves,MIN,Minnesota,Minnesota,1989,WEST,56,26
+Brooklyn Nets,BKN,Brooklyn,NewYork,1976,EAST,32,50
+New York Knicks,NYK,NewYork,NewYork,1946,EAST,50,32
+Orlando Magic,ORL,Orlando,Florida,1989,EAST,47,35
+Indiana Pacers,IND,Indiana,Indiana,1976,EAST,47,35
+Philadelphia 76ers,PHI,Philadelphia,Pennsylvania,1949,EAST,47,35
+Phoenix Suns,PHX,Phoenix,Arizona,1968,WEST,49,33
+Portland Trail Blazers,POR,Portland,Oregon,1970,WEST,21,61
+Sacramento Kings,SAC,Sacramento,California,1948,WEST,46,36
+San Antonio Spurs,SAS,SanAntonio,Texas,1976,WEST,22,60
+Oklahoma City Thunder,OKC,OklahomaCity,Oklahoma,1967,WEST,57,25
+Toronto Raptors,TOR,Toronto,Ontario,1995,EAST,25,57
+Utah Jazz,UTA,Utah,Utah,1974,WEST,31,51
+Memphis Grizzlies,MEM,Memphis,Tennessee,1995,WEST,27,55
+Washington Wizards,WAS,Washington,DistrictofColumbia,1961,EAST,15,67
+Detroit Pistons,DET,Detroit,Michigan,1948,EAST,14,68
+Charlotte Hornets,CHA,Charlotte,NorthCarolina,1988,EAST,21,61
