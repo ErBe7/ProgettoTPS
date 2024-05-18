@@ -1,22 +1,43 @@
 # ProgettoTPS
 
+### Analisi del Codice
 
-Descrizione del Progetto
-Il progetto si propone di sviluppare un'applicazione desktop utilizzando C# Windows Form e SQL Server per gestire informazioni sulle squadre e i giocatori della NBA. L'applicazione permetterà agli utenti di visualizzare, aggiungere, modificare ed eliminare squadre e giocatori, oltre a effettuare ricerche e filtraggi dei dati.
+#### Parte relativa alle squadre NBA (NBA_Teams)
 
-Classi Coinvolte
-1. Team: Rappresenta una squadra NBA e include attributi come il nome della squadra, la città, la conferenza e la divisione. Questa classe gestisce le operazioni CRUD per le squadre.
+Il namespace `ProgettoTPS` contiene la classe `NBA_Teams`, che estende `Form`. Questa classe gestisce l'interfaccia grafica per visualizzare le informazioni sulle squadre NBA.
 
-2. Player: Rappresenta un giocatore della NBA e include attributi come il nome, il cognome, la posizione, l'età e il salario. Questa classe gestisce le operazioni CRUD per i giocatori.
+- **Variabili di Classe**: La classe utilizza variabili di classe private per memorizzare i dati delle squadre e le liste delle squadre delle due conference.
 
-3. DatabaseManager: Classe responsabile della gestione delle operazioni di accesso e manipolazione dei dati nel database SQL Server. Include metodi per connettersi al database, eseguire query e aggiornare i dati.
+- **Costruttore**: Il costruttore `NBA_Teams` inizializza le liste delle squadre delle conference.
 
-4. NBA_Teams: La finestra principale dell'applicazione, che include controlli per visualizzare, aggiungere, modificare ed eliminare squadre e giocatori. Interagisce con il DatabaseManager per accedere ai dati.
+- **Metodo `Form1_Load`**: Questo metodo viene eseguito quando il form viene caricato. Legge i dati dal file CSV delle squadre, popola le liste delle squadre delle conference e visualizza i dati in una DataGridView.
 
-Dati Gestiti
-1. Dati delle Squadre: I dati delle squadre includono il nome della squadra, l'abbreviazione,città della squadra, lo stato di provenienza e l’anno di fondazione.
+- **Metodo `ReadCSV`**: Questo metodo legge i dati da un file CSV e li converte in un oggetto DataTable.
 
-2. Dati dei Giocatori: I dati dei giocatori includono il nome, il cognome, la posizione, l'età e il salario dei giocatori.
+- **Altri Metodi**: La classe contiene metodi per filtrare le squadre per conference, ordinare le squadre per vittorie e sconfitte, e ripristinare la tabella allo stato originale.
 
-Relazione
-La relazione dettagliata del progetto includerà una descrizione approfondita dell'architettura dell'applicazione, i requisiti funzionali e non funzionali, la progettazione delle classi, l'implementazione, i test e la validazione, le considerazioni sulla sicurezza e le conclusioni. In particolare, sarà illustrata la connessione tra l'applicazione C# Windows Form e il database SQL Server, insieme a esempi di codice significativi e la gestione dei dati.
+#### Parte relativa alle statistiche dei giocatori (TeamPlayersStats)
+
+Il namespace `ProgettoTPS` contiene la classe `TeamPlayersStats`, che estende `Form`. Questa classe gestisce l'interfaccia grafica per visualizzare le statistiche dei giocatori di una squadra NBA.
+
+- **Variabili di Classe**: La classe utilizza variabili di classe private per memorizzare i dati dei giocatori e i dati filtrati.
+
+- **Costruttore**: Il costruttore `TeamPlayersStats` inizializza l'interfaccia grafica, carica i dati dei giocatori e l'immagine della squadra selezionata.
+
+- **Metodo `LoadPlayers`**: Questo metodo legge i dati dei giocatori dal file CSV, li filtra per la squadra selezionata e li visualizza in una DataGridView.
+
+- **Metodo `ReadCSV`**: Questo metodo legge i dati da un file CSV e li converte in un oggetto DataTable.
+
+- **Altri Metodi**: La classe contiene metodi per gestire il click sulle celle della DataGridView, ordinare e filtrare i dati dei giocatori, e ripristinare la tabella allo stato originale.
+
+### Considerazioni
+
+- Il codice è ben strutturato e organizzato in classi separate per gestire le squadre e i giocatori.
+  
+- Viene utilizzato l'approccio Object-Oriented Programming (OOP) per separare la logica di presentazione dalla logica di business.
+
+- Sono presenti controlli per gestire casi di errore, ad esempio quando i file CSV non sono trovati o quando non ci sono dati da visualizzare.
+
+- I metodi sono abbastanza chiari nella loro funzione e ben commentati, il che facilita la manutenzione e la comprensione del codice.
+
+- Potrebbe essere utile aggiungere ulteriori commenti per spiegare parti più complesse del codice o per fornire informazioni aggiuntive sui flussi di lavoro.

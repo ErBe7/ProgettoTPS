@@ -16,12 +16,12 @@ namespace ProgettoTPS
         public TeamPlayersStats(string teamAbbreviation, string teamName)
         {
             InitializeComponent();
-            LoadPlayers(teamAbbreviation,teamName);
+            LoadPlayers(teamAbbreviation, teamName);
             LoadTeamImage(teamAbbreviation);
             this.teamName = teamName;
         }
 
-        private void LoadPlayers(string teamAbbreviazione,string teamName)
+        private void LoadPlayers(string teamAbbreviazione, string teamName)
         {
             // Imposta il percorso del file CSV per i giocatori
             string playersFilePath = "C:\\Users\\besom\\Desktop\\ProgettoTPS\\assets\\Tables\\players.csv";
@@ -126,7 +126,7 @@ namespace ProgettoTPS
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void lessButtonGame_Click(object sender, EventArgs e)
         {
             if (filteredPlayersTable != null && filteredPlayersTable.Rows.Count > 0)
             {
@@ -159,7 +159,7 @@ namespace ProgettoTPS
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void mostGameButton_Click(object sender, EventArgs e)
         {
             if (filteredPlayersTable != null && filteredPlayersTable.Rows.Count > 0)
             {
@@ -204,6 +204,342 @@ namespace ProgettoTPS
             {
                 MessageBox.Show("Non ci sono dati da resettare.");
             }
+        }
+
+        private void mostMinutesPerGameButton_Click(object sender, EventArgs e)
+        {
+            if (filteredPlayersTable != null && filteredPlayersTable.Rows.Count > 0)
+            {
+                // Clone the original filtered table to ensure we always sort from the original set
+                DataTable sortedTable = filteredPlayersTable.Clone();
+                sortedTable.Columns["MPG"].DataType = typeof(double);
+
+                // Import rows from filteredPlayersTable, converting "GP" to integer
+                foreach (DataRow row in filteredPlayersTable.Rows)
+                {
+                    DataRow newRow = sortedTable.NewRow();
+                    newRow.ItemArray = row.ItemArray;
+                    newRow["MPG"] = Convert.ToDouble(row["MPG"]);
+                    sortedTable.Rows.Add(newRow);
+                }
+
+                // Sort the players by GP (games played) in descending order
+                DataView dv = sortedTable.DefaultView;
+                dv.Sort = "MPG DESC";
+
+                // Take the top 5 players
+                DataTable top5PlayersTable = dv.ToTable().AsEnumerable().Take(5).CopyToDataTable();
+
+                // Show the top 5 players in the DataGridView
+                dataGridView1.DataSource = top5PlayersTable;
+            }
+            else
+            {
+                MessageBox.Show("Nessun giocatore trovato per la squadra selezionata.");
+            }
+        }
+
+        private void lessMinutesPerGameButton_Click(object sender, EventArgs e)
+        {
+            if (filteredPlayersTable != null && filteredPlayersTable.Rows.Count > 0)
+            {
+                // Clone the original filtered table to ensure we always sort from the original set
+                DataTable sortedTable = filteredPlayersTable.Clone();
+                sortedTable.Columns["MPG"].DataType = typeof(double);
+
+                // Import rows from filteredPlayersTable, converting "GP" to integer
+                foreach (DataRow row in filteredPlayersTable.Rows)
+                {
+                    DataRow newRow = sortedTable.NewRow();
+                    newRow.ItemArray = row.ItemArray;
+                    newRow["MPG"] = Convert.ToDouble(row["MPG"]);
+                    sortedTable.Rows.Add(newRow);
+                }
+
+                // Sort the players by GP (games played) in descending order
+                DataView dv = sortedTable.DefaultView;
+                dv.Sort = "MPG ASC";
+
+                // Take the top 5 players
+                DataTable top5PlayersTable = dv.ToTable().AsEnumerable().Take(5).CopyToDataTable();
+
+                // Show the top 5 players in the DataGridView
+                dataGridView1.DataSource = top5PlayersTable;
+            }
+            else
+            {
+                MessageBox.Show("Nessun giocatore trovato per la squadra selezionata.");
+            }
+        }
+
+        private void mostPointsPerGameButton_Click(object sender, EventArgs e)
+        {
+            if (filteredPlayersTable != null && filteredPlayersTable.Rows.Count > 0)
+            {
+                // Clone the original filtered table to ensure we always sort from the original set
+                DataTable sortedTable = filteredPlayersTable.Clone();
+                sortedTable.Columns["PTS"].DataType = typeof(double);
+
+                // Import rows from filteredPlayersTable, converting "GP" to integer
+                foreach (DataRow row in filteredPlayersTable.Rows)
+                {
+                    DataRow newRow = sortedTable.NewRow();
+                    newRow.ItemArray = row.ItemArray;
+                    newRow["PTS"] = Convert.ToDouble(row["PTS"]);
+                    sortedTable.Rows.Add(newRow);
+                }
+
+                // Sort the players by GP (games played) in descending order
+                DataView dv = sortedTable.DefaultView;
+                dv.Sort = "PTS DESC";
+
+                // Take the top 5 players
+                DataTable top5PlayersTable = dv.ToTable().AsEnumerable().Take(5).CopyToDataTable();
+
+                // Show the top 5 players in the DataGridView
+                dataGridView1.DataSource = top5PlayersTable;
+            }
+            else
+            {
+                MessageBox.Show("Nessun giocatore trovato per la squadra selezionata.");
+            }
+        }
+
+        private void lessPointsPerGameButton_Click(object sender, EventArgs e)
+        {
+            if (filteredPlayersTable != null && filteredPlayersTable.Rows.Count > 0)
+            {
+                // Clone the original filtered table to ensure we always sort from the original set
+                DataTable sortedTable = filteredPlayersTable.Clone();
+                sortedTable.Columns["PTS"].DataType = typeof(double);
+
+                // Import rows from filteredPlayersTable, converting "GP" to integer
+                foreach (DataRow row in filteredPlayersTable.Rows)
+                {
+                    DataRow newRow = sortedTable.NewRow();
+                    newRow.ItemArray = row.ItemArray;
+                    newRow["PTS"] = Convert.ToDouble(row["PTS"]);
+                    sortedTable.Rows.Add(newRow);
+                }
+
+                // Sort the players by GP (games played) in descending order
+                DataView dv = sortedTable.DefaultView;
+                dv.Sort = "PTS ASC";
+
+                // Take the top 5 players
+                DataTable top5PlayersTable = dv.ToTable().AsEnumerable().Take(5).CopyToDataTable();
+
+                // Show the top 5 players in the DataGridView
+                dataGridView1.DataSource = top5PlayersTable;
+            }
+            else
+            {
+                MessageBox.Show("Nessun giocatore trovato per la squadra selezionata.");
+            }
+        }
+
+        private void mostReboundsPerGameButton_Click(object sender, EventArgs e)
+        {
+            if (filteredPlayersTable != null && filteredPlayersTable.Rows.Count > 0)
+            {
+                // Clone the original filtered table to ensure we always sort from the original set
+                DataTable sortedTable = filteredPlayersTable.Clone();
+                sortedTable.Columns["REB"].DataType = typeof(double);
+
+                // Import rows from filteredPlayersTable, converting "GP" to integer
+                foreach (DataRow row in filteredPlayersTable.Rows)
+                {
+                    DataRow newRow = sortedTable.NewRow();
+                    newRow.ItemArray = row.ItemArray;
+                    newRow["REB"] = Convert.ToDouble(row["REB"]);
+                    sortedTable.Rows.Add(newRow);
+                }
+
+                // Sort the players by GP (games played) in descending order
+                DataView dv = sortedTable.DefaultView;
+                dv.Sort = "REB DESC";
+
+                // Take the top 5 players
+                DataTable top5PlayersTable = dv.ToTable().AsEnumerable().Take(5).CopyToDataTable();
+
+                // Show the top 5 players in the DataGridView
+                dataGridView1.DataSource = top5PlayersTable;
+            }
+            else
+            {
+                MessageBox.Show("Nessun giocatore trovato per la squadra selezionata.");
+            }
+        }
+
+        private void lessReboundsPerGameButton_Click(object sender, EventArgs e)
+        {
+            if (filteredPlayersTable != null && filteredPlayersTable.Rows.Count > 0)
+            {
+                // Clone the original filtered table to ensure we always sort from the original set
+                DataTable sortedTable = filteredPlayersTable.Clone();
+                sortedTable.Columns["REB"].DataType = typeof(double);
+
+                // Import rows from filteredPlayersTable, converting "GP" to integer
+                foreach (DataRow row in filteredPlayersTable.Rows)
+                {
+                    DataRow newRow = sortedTable.NewRow();
+                    newRow.ItemArray = row.ItemArray;
+                    newRow["REB"] = Convert.ToDouble(row["REB"]);
+                    sortedTable.Rows.Add(newRow);
+                }
+
+                // Sort the players by GP (games played) in descending order
+                DataView dv = sortedTable.DefaultView;
+                dv.Sort = "REB ASC";
+
+                // Take the top 5 players
+                DataTable top5PlayersTable = dv.ToTable().AsEnumerable().Take(5).CopyToDataTable();
+
+                // Show the top 5 players in the DataGridView
+                dataGridView1.DataSource = top5PlayersTable;
+            }
+            else
+            {
+                MessageBox.Show("Nessun giocatore trovato per la squadra selezionata.");
+            }
+        }
+
+        private void mostAssistPerGameButton_Click(object sender, EventArgs e)
+        {
+            if (filteredPlayersTable != null && filteredPlayersTable.Rows.Count > 0)
+            {
+                // Clone the original filtered table to ensure we always sort from the original set
+                DataTable sortedTable = filteredPlayersTable.Clone();
+                sortedTable.Columns["AST"].DataType = typeof(double);
+
+                // Import rows from filteredPlayersTable, converting "GP" to integer
+                foreach (DataRow row in filteredPlayersTable.Rows)
+                {
+                    DataRow newRow = sortedTable.NewRow();
+                    newRow.ItemArray = row.ItemArray;
+                    newRow["AST"] = Convert.ToDouble(row["AST"]);
+                    sortedTable.Rows.Add(newRow);
+                }
+
+                // Sort the players by GP (games played) in descending order
+                DataView dv = sortedTable.DefaultView;
+                dv.Sort = "AST DESC";
+
+                // Take the top 5 players
+                DataTable top5PlayersTable = dv.ToTable().AsEnumerable().Take(5).CopyToDataTable();
+
+                // Show the top 5 players in the DataGridView
+                dataGridView1.DataSource = top5PlayersTable;
+            }
+            else
+            {
+                MessageBox.Show("Nessun giocatore trovato per la squadra selezionata.");
+            }
+        }
+
+        private void mostStealsPerGameButton_Click(object sender, EventArgs e)
+        {
+            if (filteredPlayersTable != null && filteredPlayersTable.Rows.Count > 0)
+            {
+                // Clone the original filtered table to ensure we always sort from the original set
+                DataTable sortedTable = filteredPlayersTable.Clone();
+                sortedTable.Columns["STL"].DataType = typeof(double);
+
+                // Import rows from filteredPlayersTable, converting "GP" to integer
+                foreach (DataRow row in filteredPlayersTable.Rows)
+                {
+                    DataRow newRow = sortedTable.NewRow();
+                    newRow.ItemArray = row.ItemArray;
+                    newRow["STL"] = Convert.ToDouble(row["STL"]);
+                    sortedTable.Rows.Add(newRow);
+                }
+
+                // Sort the players by GP (games played) in descending order
+                DataView dv = sortedTable.DefaultView;
+                dv.Sort = "STL DESC";
+
+                // Take the top 5 players
+                DataTable top5PlayersTable = dv.ToTable().AsEnumerable().Take(5).CopyToDataTable();
+
+                // Show the top 5 players in the DataGridView
+                dataGridView1.DataSource = top5PlayersTable;
+            }
+            else
+            {
+                MessageBox.Show("Nessun giocatore trovato per la squadra selezionata.");
+            }
+        }
+
+        private void lessAssistPerGameButton_Click(object sender, EventArgs e)
+        {
+            if (filteredPlayersTable != null && filteredPlayersTable.Rows.Count > 0)
+            {
+                // Clone the original filtered table to ensure we always sort from the original set
+                DataTable sortedTable = filteredPlayersTable.Clone();
+                sortedTable.Columns["AST"].DataType = typeof(double);
+
+                // Import rows from filteredPlayersTable, converting "GP" to integer
+                foreach (DataRow row in filteredPlayersTable.Rows)
+                {
+                    DataRow newRow = sortedTable.NewRow();
+                    newRow.ItemArray = row.ItemArray;
+                    newRow["AST"] = Convert.ToDouble(row["AST"]);
+                    sortedTable.Rows.Add(newRow);
+                }
+
+                // Sort the players by GP (games played) in descending order
+                DataView dv = sortedTable.DefaultView;
+                dv.Sort = "AST ASC";
+
+                // Take the top 5 players
+                DataTable top5PlayersTable = dv.ToTable().AsEnumerable().Take(5).CopyToDataTable();
+
+                // Show the top 5 players in the DataGridView
+                dataGridView1.DataSource = top5PlayersTable;
+            }
+            else
+            {
+                MessageBox.Show("Nessun giocatore trovato per la squadra selezionata.");
+            }
+        }
+
+        private void lessStealsPerGameButton_Click(object sender, EventArgs e)
+        {
+            if (filteredPlayersTable != null && filteredPlayersTable.Rows.Count > 0)
+            {
+                // Clone the original filtered table to ensure we always sort from the original set
+                DataTable sortedTable = filteredPlayersTable.Clone();
+                sortedTable.Columns["STL"].DataType = typeof(double);
+
+                // Import rows from filteredPlayersTable, converting "GP" to integer
+                foreach (DataRow row in filteredPlayersTable.Rows)
+                {
+                    DataRow newRow = sortedTable.NewRow();
+                    newRow.ItemArray = row.ItemArray;
+                    newRow["STL"] = Convert.ToDouble(row["STL"]);
+                    sortedTable.Rows.Add(newRow);
+                }
+
+                // Sort the players by GP (games played) in descending order
+                DataView dv = sortedTable.DefaultView;
+                dv.Sort = "STL ASC";
+
+                // Take the top 5 players
+                DataTable top5PlayersTable = dv.ToTable().AsEnumerable().Take(5).CopyToDataTable();
+
+                // Show the top 5 players in the DataGridView
+                dataGridView1.DataSource = top5PlayersTable;
+            }
+            else
+            {
+                MessageBox.Show("Nessun giocatore trovato per la squadra selezionata.");
+            }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+                // Chiudi la finestra corrente
+                this.Close();
         }
     }
 }

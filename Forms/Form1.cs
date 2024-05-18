@@ -125,7 +125,7 @@ namespace ProgettoTPS
 
         private void resetButton_Click(object sender, EventArgs e)
         {
-            string originalFilePath = "C:\\Users\\besom\\Desktop\\ProgettoTPS\\SquadNBA\\team.csv";
+            string originalFilePath = "C:\\Users\\besom\\Desktop\\ProgettoTPS\\assets\\Tables\\team.csv";
 
             if (File.Exists(originalFilePath))
             {
